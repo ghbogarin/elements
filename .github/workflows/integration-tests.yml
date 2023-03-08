@@ -41,7 +41,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/github-script@v6.3.3
         with:
-          state: ${{toJSON(github.event.client_payload.summary).State}}
           script: |
             const createSummary = require('.github/external-testing/createSummary.js')
             await createSummary({core}, ${{toJSON(github.event.client_payload.summary)}})
+      - name: Results
+        run: exit 1
+        if: ${{${{toJSON(github.event.client_payload.summary).State}} != 'success'}}
