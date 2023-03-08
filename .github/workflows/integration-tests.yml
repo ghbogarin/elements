@@ -46,4 +46,4 @@ jobs:
             await createSummary({core}, ${{toJSON(github.event.client_payload.summary)}})
       - name: Results
         run: exit 1
-        if: ${{toJSON(github.event.client_payload.summary)}}.State
+        if: ${{toJSON(github.event.client_payload.summary).State}}
