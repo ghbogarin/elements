@@ -1,7 +1,7 @@
 module.exports = async ({core}, data) => {
   if(data.Reference)
       convertToArray({core}, data.Reference, null, null);
-  
+  console.log(data.Status);
   let keys = Object.keys(data);
   keys.forEach(a =>{
     if(a.includes("Summary")){
