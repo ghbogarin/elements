@@ -15,7 +15,7 @@ module.exports = async ({core}, data) => {
   
   await core.summary.write();
   
-  if(data.Status == 'success')
+  if(data.Status != 'success')
     core.setFailed();
 }
 
