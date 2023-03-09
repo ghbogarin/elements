@@ -44,14 +44,3 @@ jobs:
           script: |
             const createSummary = require('.github/external-testing/createSummary.js')
             await createSummary({core}, ${{toJSON(github.event.client_payload.summary)}})
-      - name: Resultsss
-        run: |
-          echo -e '${{toJSON(github.event.client_payload.summary.State)}}'
-          echo -e ${{toJSON(github.event.client_payload.summary.State)}}
-          echo -e '${{toJSON(github.event.client_payload.summary).State}}'
-          echo -e ${{toJSON(github.event.client_payload.summary).State}}
-          echo -e '${{github.event.client_payload.summary.State}}'
-          echo -e ${{github.event.client_payload.summary.State}}
-      - name: Results
-        run: exit 1
-        if: ${{toJSON(github.event.client_payload.summary).State}} != 'success'
